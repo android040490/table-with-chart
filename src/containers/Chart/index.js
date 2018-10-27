@@ -12,12 +12,17 @@ charts(FusionCharts);
 
 const chartConfig = {
     "chart": {
+        "animation": true,
+        "animationDuration": 1,
+        "outCnvBaseFont": "Arial",
+        "outCnvBaseFontSize": "14",
+        "outCnvBaseFontColor": "#633563",
         "caption": "Student exam results ( Biology )",
         "subcaption": "For the year 2018",
         "yaxisname": "Number of points",
         "xaxisname": "Students name",
         "decimals": "1",
-        "theme": "gammel"
+        "theme": "ocean"
     }
 };
 
@@ -29,6 +34,8 @@ class Chart extends React.Component {
                 label: item.name,
                 value: item.exam.point
             }
+        }).sort((a, b) => {
+            return b.value - a.value
         })
         return (
             <ReactFusioncharts

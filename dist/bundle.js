@@ -39281,12 +39281,17 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var chartConfig = {
     "chart": {
+        "animation": true,
+        "animationDuration": 1,
+        "outCnvBaseFont": "Arial",
+        "outCnvBaseFontSize": "14",
+        "outCnvBaseFontColor": "#633563",
         "caption": "Student exam results ( Biology )",
         "subcaption": "For the year 2018",
         "yaxisname": "Number of points",
         "xaxisname": "Students name",
         "decimals": "1",
-        "theme": "gammel"
+        "theme": "ocean"
     }
 };
 
@@ -39307,6 +39312,8 @@ var Chart = function (_React$Component) {
                     label: item.name,
                     value: item.exam.point
                 };
+            }).sort(function (a, b) {
+                return b.value - a.value;
             });
             return _react2.default.createElement(_reactFusioncharts2.default, {
                 type: 'column3d',
